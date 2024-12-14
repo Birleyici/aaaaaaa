@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Overlay Text Changer" />
+    
+    <ScrollView>
+        <StackLayout class="p-20">
+            <Label text="Overlay Text Changer" class="h1 text-center" />
+            <Button text="Request Permissions" tap="{{ requestPermissions }}" class="btn btn-primary m-b-20" />
+            
+            <GridLayout rows="auto" columns="*, *" class="m-b-20">
+                <TextField col="0" hint="Original Text" text="{{ originalText }}" class="input m-r-10" />
+                <TextField col="1" hint="Replace With" text="{{ replacementText }}" class="input" />
+            </GridLayout>
+            
+            <Button text="Add Replacement" tap="{{ addReplacement }}" class="btn btn-info m-b-20" />
+            
+            <ListView items="{{ replacements }}" class="list-group" height="150">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item">
+                        <Label text="{{ originalText + ' → ' + replacementText }}" textWrap="true" />
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <StackLayout class="m-t-20">
+                <Button text="Start Overlay" tap="{{ startOverlay }}" class="btn btn-success m-b-10" />
+                <Button text="Stop Overlay" tap="{{ stopOverlay }}" class="btn btn-danger" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

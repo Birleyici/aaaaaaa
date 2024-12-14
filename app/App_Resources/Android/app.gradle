@@ -1,0 +1,26 @@
+android {
+  defaultConfig {
+    applicationId "com.overlaychanger.app"
+    minSdkVersion 21
+    targetSdkVersion 33
+    versionCode 1
+    versionName "1.0.0"
+  }
+
+  signingConfigs {
+    release {
+      storeFile file("keystore.jks")
+      storePassword "overlay123"
+      keyAlias "overlay"
+      keyPassword "overlay123"
+    }
+  }
+
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
